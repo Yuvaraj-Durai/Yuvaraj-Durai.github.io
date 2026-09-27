@@ -163,22 +163,27 @@
   }
   @keyframes glowPulse{ 0%,100%{ opacity:0.5; } 50%{ opacity:1; } }
 
-  /* ---------- Hero (photo column left, content right) ---------- */
+  /* ---------- Hero (full-bleed photo left, content right) ---------- */
   .hero{ position: relative; overflow:hidden; }
-  .hero-split{ display:flex; align-items:center; gap: 3rem; min-height: 90vh; padding: 7rem 0 4rem; }
+  .hero-split{ display:flex; align-items:stretch; min-height: 92vh; }
   .hero-avatar{
-    flex: 0 0 340px; width: 340px; height: 440px; border-radius: 18px;
-    overflow: hidden; position: relative; z-index:1;
+    flex: 0 0 44%; position: relative; z-index:1;
   }
   @media (max-width: 900px){
-    .hero-split{ flex-direction: column; min-height: auto; padding: 7rem 0 3rem; text-align:center; }
-    .hero-avatar{ flex: 0 0 auto; width: 240px; height: 310px; margin: 0 auto; }
+    .hero-split{ flex-direction: column; min-height: auto; }
+    .hero-avatar{ flex: 0 0 auto; height: 60vh; }
   }
-  .hero-avatar .inner{ width:100%; height:100%; border-radius: 18px; overflow:hidden; background:#16221F; display:flex; align-items:center; justify-content:center; }
+  .hero-avatar .inner{ width:100%; height:100%; overflow:hidden; background:#16221F; display:flex; align-items:center; justify-content:center; }
   .hero-avatar img{ width:100%; height:100%; object-fit:cover; }
   .hero-avatar .placeholder-text{ color:#75757c; font-size:0.78rem; text-align:center; padding: 0.6rem; line-height:1.3; }
-  .hero-inner{ flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; }
-  .hero .kicker{ display:inline-block; font-size: 0.85rem; color: var(--gold); border: 1px solid rgba(212,175,106,0.35); padding: 0.35rem 0.9rem; border-radius: 999px; margin-bottom: 1.4rem; }
+  .hero-inner{ flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; padding: 6rem 5% 4rem; display:flex; flex-direction:column; justify-content:center; }
+  @media (max-width: 900px){
+    .hero-inner{ padding: 3rem 6%; text-align:center; }
+  }
+  .hero .kicker{ display:inline-block; font-size: 0.85rem; color: var(--gold); border: 1px solid rgba(212,175,106,0.35); padding: 0.35rem 0.9rem; border-radius: 999px; margin-bottom: 1.4rem; align-self:flex-start; }
+  @media (max-width: 900px){
+    .hero .kicker{ align-self:center; }
+  }
   .hero h1{ font-size: clamp(2.3rem, 4.8vw, 3.7rem); line-height: 1.08; margin-bottom: 1.1rem; }
   .hero .lede{ font-size: 1.08rem; max-width: 54ch; }
   @media (max-width: 900px){
@@ -361,10 +366,10 @@
 
 <section class="hero">
   <div class="hero-glow"><div class="sphere-scene"><div class="sphere" id="dotSphere"></div></div></div>
-  <div class="container hero-split">
+  <div class="hero-split">
     <div class="hero-avatar shine run-shine">
       <div class="inner">
-        <img src="profile.jpg" alt="Yuvaraj Durai">
+        <img src="image/profile.jpg" alt="Yuvaraj Durai">
       </div>
     </div>
     <div class="hero-inner reveal">
