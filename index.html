@@ -200,7 +200,7 @@
   .hero .quick-facts .label{ font-size: 0.78rem; color: var(--ink-soft); margin-bottom:0.2rem; }
   .hero .quick-facts .value{ font-family: var(--heading-font); font-size: 1rem; font-weight:600; }
   .hero-glow{
-    position:absolute; top: 44%; left:50%; transform: translate(-50%,-50%);
+    position:absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
     width: 560px; height: 560px;
     perspective: 1000px;
     z-index: 0; pointer-events:none;
@@ -365,7 +365,6 @@
 </header>
 
 <section class="hero">
-  <div class="hero-glow"><div class="sphere-scene"><div class="sphere" id="dotSphere"></div></div></div>
   <div class="hero-split">
     <div class="hero-avatar shine run-shine">
       <div class="inner">
@@ -373,6 +372,7 @@
       </div>
     </div>
     <div class="hero-inner reveal">
+      <div class="hero-glow"><div class="sphere-scene"><div class="sphere" id="dotSphere"></div></div></div>
       <span class="kicker">PhD Researcher &middot; BITS Pilani Goa</span>
       <h1>Engineering research today. Building a business tomorrow.</h1>
       <p class="lede">First-year PhD candidate in Electrical &amp; Electronics Engineering — working across Machine Learning, Deep Learning, AI, semiconductors and embedded hardware, with a long-standing ambition to build a company of my own.</p>
@@ -724,21 +724,7 @@
     });
   });
 
-  // Hero depth: mouse-driven parallax between avatar and glow (desktop pointer only)
-  const heroSection = document.querySelector('.hero');
-  const heroAvatar = document.querySelector('.hero-avatar');
-  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-  if (heroSection && heroAvatar && hasFinePointer) {
-    heroSection.addEventListener('mousemove', (e) => {
-      const rect = heroSection.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      heroAvatar.style.transform = `perspective(700px) rotateX(${py * -12}deg) rotateY(${px * 12}deg) translateZ(20px)`;
-    });
-    heroSection.addEventListener('mouseleave', () => {
-      heroAvatar.style.transform = '';
-    });
-  }
+  // Hero photo now stays still — cursor-driven tilt removed.
 
   // Device sensor tilt removed — photo now stays fixed in place on mobile.
 
